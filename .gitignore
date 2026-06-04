@@ -1,0 +1,7 @@
+.env
+.env.*
+!.env.example
+!.env.payment.example
+outputs/
+*.log
+node_modules/

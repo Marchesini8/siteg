@@ -923,6 +923,14 @@ button {
   transform: translateY(0) scale(1);
 }
 
+.final-payment-button {
+  display: none;
+}
+
+.final-payment-button.is-visible {
+  display: block;
+}
+
 .chat-bubble {
   max-width: 86%;
   padding: 12px 14px;
